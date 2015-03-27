@@ -1,0 +1,6 @@
+<ul class="nav navbar-nav">
+  {{#each route in routes}}
+    <li>{{#link-to route.routeName}}{{route.name}}{{/link-to}}</li>
+  {{/each}}
+  {{yield}}
+</ul>
