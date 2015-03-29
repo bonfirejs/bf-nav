@@ -1,6 +1,5 @@
-export function initialize(container) {
-  var router = container.lookup('router:main');
-  container.register('service:router', router, { instantiate: false });
+export function initialize(container, application) {
+  application.inject('component:bf-nav', 'router', 'router:main');
 }
 
 export default {

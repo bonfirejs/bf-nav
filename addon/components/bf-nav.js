@@ -3,7 +3,6 @@ import layout from '../templates/components/bf-nav';
 
 export default Ember.Component.extend({
   layout: layout,
-  router: Ember.inject.service(),
   routes: function() {
     var routes = Object.keys(this.get('router.router.recognizer.names'));
     routes = routes.filter(function(item) {
