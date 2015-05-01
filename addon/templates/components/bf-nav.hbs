@@ -1,6 +1,20 @@
 <ul class="nav navbar-nav">
   {{#each route in routes}}
-    <li>{{#link-to route.routeName}}{{route.name}}{{/link-to}}</li>
+    {{! Child route component goes here }}
+    {{#if route.children}}
+      <li class="dropdown">
+        {{#link-to route.routeName classNames="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"}}
+          {{route.name}} <span class="caret"></span>
+        {{/link-to}}
+        <ul class="dropdown-menu" role="menu">
+          {{#each route in route.children}}
+            <li>{{#link-to route.routeName}}{{route.name}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      </li>
+    {{else}}
+      <li>{{#link-to route.routeName}}{{route.name}}{{/link-to}}</li>
+    {{/if}}
   {{/each}}
   {{yield}}
 </ul>
